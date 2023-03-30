@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 02</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3">    
+        <h2>{{ titulo }}</h2>
+        <form action="{% url 'encuesta:enviar' %}" method="post" class="border p-3 form">
+            {% csrf_token %}
+            <div class="mb-3 row g-3">
+                <div class="col-auto">
+                    Nombre:
+                    <input type="text" name="nombre" maxlength="50"><br>
+                </div>
+                <div class="col-auto">
+                    Contraseña:
+                    <input type="password" name="password" id=""><br>
+                </div>
+
+            </div>
+
+
+            Educación:
+            <select name="educacion" id="" class="form-select">
+                <option value="sin-estudios">Sin estudios</option>
+                <option value="educacion-obligatoria" selected>Obligación obligatoria</option>
+                <option value="formacion-profesional">Formación profesional</option>
+                <option value="universidad">Universidad</option>
+            </select><br>
+            <div class="mb-3">
+                <div class="mb-3">
+                    Nacionalidad:
+                    <div class="form-check">
+                        <input class="add-margin" type="radio" name="nacionalidad" value="hispana">Hispana
+                        <input class="add-margin" type="radio" name="nacionalidad" value="otra">Otra
+                    </div>
+                </div>
+                <div class="mb-3">
+                    Idiomas:
+                    <div class="form-check">
+                        <input class="add-margin" type="checkbox" name="idiomas" value="español" checked="checked">Español
+                        <input class="add-margin" type="checkbox" name="idiomas" value="inglés">Inglés
+                        <input class="add-margin" type="checkbox" name="idiomas" value="francés">Francés
+                        <input class="add-margin" type="checkbox" name="idiomas" value="alemán">Alemán
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .add-margin {
+                    margin-left: 10px;
+                    margin-right: 10px
+                }
+            </style>
+
+            <div class="mb-3 row g-3">
+                <div class="col-auto">
+                    Email:
+                    <input type="text" name="email"><br>
+                </div>
+                <div class="col-auto">
+                    Sitio Web:
+                    <input type="text" name="sitioweb"><br>
+                </div>
+            </div>
+
+            <!-- Botón de enviar -->
+            <input type="submit" name="submit" value="Enviar" class="btn btn-primary">
+        </form>
+    
+    </div>
+</body>
+</html>
+
+
+
+
+
+
