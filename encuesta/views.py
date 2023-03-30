@@ -22,6 +22,6 @@ def enviar(request):
 
 def operaciones(request):
     context = {
-        'titulo': 'Operaciones básicas',t 
+        'titulo': 'Operaciones básicas',
     }
     return render(request, 'operaciones.html', context)
