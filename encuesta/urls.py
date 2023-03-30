@@ -9,5 +9,7 @@ urlpatterns = [
     path('enviar', views.enviar, name='enviar'),
     path('operaciones/', views.operaciones, name='operaciones'),
     path('mostrar/', views.mostrar, name='mostrar'),
+
+    path('calcular/', views.calcular, name='calcular'),
     
 ]

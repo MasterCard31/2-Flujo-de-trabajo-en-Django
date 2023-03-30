@@ -1,0 +1,13 @@
+
+
+{% block content %}
+<h1>Calculadora</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calcular</button>
+</form>
+{% if result %}
+<p>El resultado es: {{ result }}</p>
+{% endif %}
+{% endblock %}

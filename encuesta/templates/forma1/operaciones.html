@@ -11,23 +11,23 @@
 <body>
     <div class="container w-50 p-3">
         <h2>{{ titulo }}</h2>
-        <form action="{% url 'encuesta:mostrar' %}" class="border mt-4 p-3 form">
-            
+        <form action="{% url 'encuesta:mostrar' %}" class="border mt-4 p-3 form" method="POST">
+            {% csrf_token %}
             <div class="grid" >
                 <div>
-                    <input type="text" class="form-control" name="num1">
+                    <input type="text" class="form-control" name="num1" required>
                 </div>
                 
                 <div class="">
                     <select name="operador"class="form-select">
-                        <option value="suma" selected>{{ suma }}</option>
-                        <option value="resta">{{ resta }}</option>
-                        <option value="multiplicación">{{ multiplicacion }}</option>
+                        <option value="suma" selected>+</option>
+                        <option value="resta">-</option>
+                        <option value="multiplicacion">x</option>
                     </select>
                 </div>
 
                 <div>
-                    <input type="text" class="form-control" name="num2">
+                    <input type="text" class="form-control" name="num2" required>
                 </div>
             </div>
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import OperacionesForm
 
 # Create your views here.
 def index(request):
@@ -23,24 +24,48 @@ def enviar(request):
 def operaciones(request):
     context = {
         'titulo': 'Operaciones básicas',
-        'suma' : '+',
-        'resta' : '-',
-        'multiplicacion': 'x',
-
     }
-    return render(request, 'operaciones.html', context)
+    return render(request, 'forma1/operaciones.html', context)
 
 def mostrar(request):
-    
+    num1 = int(request.POST['num1'])
+    num2 = int(request.POST['num2'])
+    operador = request.POST['operador']
+
+    if operador == "suma":
+        resultado = num1 + num2
+        mostrar = 'El suma de %i + %i = %i' % (num1, num2, resultado)
+    elif operador == "resta":
+        resultado = num1 - num2
+        mostrar = 'El resta de %i - %i = %i' % (num1, num2, resultado)
+    elif operador == "multiplicacion":
+        resultado = num1 * num2
+        mostrar = 'El multiplicación de %i x %i = %i' % (num1, num2, resultado)
+
     context = {
-        'suma' : '+',
-        'resta' : '-',
-        'multiplicacion': 'x',
-        'num1': request.GET['num1'],
-        'operador': request.GET['operador'],
-        'num2' : request.GET['num2'],
-        'resultado': '',
+        'mostrar': mostrar,
     }
-    return render(request, 'respuesta.html', context )
+    return render(request, 'forma1/respuesta.html', context )
+
+# Segunda forma
+def calcular(request):
+    result = None
+    if request.method == "POST":
+        form = OperacionesForm(request.POST)
+        if form.is_valid():
+            num1 = form.cleaned_data['num1']
+            num2 = form.cleaned_data['num2']
+            operador = form.cleaned_data['operador']
+            if operador == "suma":
+                result = num1 + num2
+            elif operador == "resta":
+                result = num1 - num2
+            elif operador == "multiplicacion":
+                result = num1 * num2
+    else:
+        form = OperacionesForm()
+    return render(request, "forma2/calcular.html", {"form": form, "result": result})
+            
+        
     
 

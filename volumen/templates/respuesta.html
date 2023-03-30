@@ -1,0 +1,12 @@
+<title>Volumen</title>
+{% block content %}
+<h1>Volumen de un cilindro</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calcular</button>
+</form>
+{% if mostrar %}
+<p>{{ mostrar }}</p>
+{% endif %}
+{% endblock %}

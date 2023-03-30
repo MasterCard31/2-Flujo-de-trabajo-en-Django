@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'encuesta.apps.EncuestaConfig',
+    'volumen',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
