@@ -23,5 +23,24 @@ def enviar(request):
 def operaciones(request):
     context = {
         'titulo': 'Operaciones básicas',
+        'suma' : '+',
+        'resta' : '-',
+        'multiplicacion': 'x',
+
     }
     return render(request, 'operaciones.html', context)
+
+def mostrar(request):
+    
+    context = {
+        'suma' : '+',
+        'resta' : '-',
+        'multiplicacion': 'x',
+        'num1': request.GET['num1'],
+        'operador': request.GET['operador'],
+        'num2' : request.GET['num2'],
+        'resultado': '',
+    }
+    return render(request, 'respuesta.html', context )
+    
+
