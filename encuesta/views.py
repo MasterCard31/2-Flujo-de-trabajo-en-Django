@@ -28,19 +28,19 @@ def operaciones(request):
     return render(request, 'forma1/operaciones.html', context)
 
 def mostrar(request):
-    num1 = int(request.POST['num1'])
-    num2 = int(request.POST['num2'])
+    num1 = Float(request.POST['num1'])
+    num2 = Float(request.POST['num2'])
     operador = request.POST['operador']
 
     if operador == "suma":
         resultado = num1 + num2
-        mostrar = 'El suma de %i + %i = %i' % (num1, num2, resultado)
+        mostrar = 'El suma de %f + %f = %f' % (num1, num2, resultado)
     elif operador == "resta":
         resultado = num1 - num2
-        mostrar = 'El resta de %i - %i = %i' % (num1, num2, resultado)
+        mostrar = 'El resta de %f - %f = %f' % (num1, num2, resultado)
     elif operador == "multiplicacion":
         resultado = num1 * num2
-        mostrar = 'El multiplicación de %i x %i = %i' % (num1, num2, resultado)
+        mostrar = 'El multiplicación de %f x %f = %f' % (num1, num2, resultado)
 
     context = {
         'mostrar': mostrar,

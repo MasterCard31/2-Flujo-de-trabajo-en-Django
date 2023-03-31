@@ -5,6 +5,8 @@ app_name = 'volumen'
 
 urlpatterns = [
     # ex: /volumen/
-    path('', views.calcular, name='calcular'),
+    path('calcular/', views.calcular, name='calcular'),
+    path('', views.formulario, name='formulario'),
+    path('mostrar', views.mostrar, name='mostrar'),
     
 ]
